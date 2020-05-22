@@ -51,15 +51,21 @@
 
     async function shareMsg() {
       await liff.shareTargetPicker([
+      {
+          "type": "sticker",
+            "stickerId": "52002738",
+            "packageId": "11537"
+        },
         {
           "type": "text",
-          "text": "Hi everybody"
-        },
+          "text": "send from mobile, No virus don't worry!"
+        },        
         {
           "type": "sticker",
             "stickerId": "52002734",
             "packageId": "11537"
         }
+
       ])
     }
 
