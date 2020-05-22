@@ -133,7 +133,7 @@
     async function main() {
       //alert("LINE Developers Sirichai")
       await liff.init({ liffId: "1654240207-Ge5E9wx9" })
-      document.getEnvironment("isLoggedIn").append(liff.isLoggedIn())
+      document.getElementById("isLoggedIn").append(liff.isLoggedIn())
       if (liff.isLoggedIn()) {
         getEnvironment()
         getUserProfile()
