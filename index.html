@@ -50,6 +50,12 @@
     }
 
     async function shareMsg() {
+      await liff.shareTargetPicker([
+        {
+          "type": "text",
+          "text": "ทดสอบการส่งข้อความ ShareTargetPicker"
+        }
+      ])
     }
 
     function logOut() {
@@ -121,10 +127,7 @@
       document.getElementById("version").append(liff.getVersion())
       document.getElementById("accessToken").append(liff.getAccessToken())
       document.getElementById("isInClient").append(liff.isInClient())
-      if (liff.isInClient()) { //เปิดใน line
-        document.getElementById("btnShare").style.display = "none"
-      } else { //เปิดใน external browser
-        document.getElementById("btnMsg").style.display = "none"
+      if (!liff.isInClient()) { //เปิดใน external browser
         document.getElementById("btnScanCode").style.display = "none"
         document.getElementById("btnClose").style.display = "none"
       }
