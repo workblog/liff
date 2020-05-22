@@ -53,6 +53,8 @@
     }
 
     function logOut() {
+      liff.logout()
+      window.location.reload()
     }
 
     function closed() {
@@ -140,7 +142,7 @@
         // createUniversalLink()
       } else {
         liff.login()
-        
+
       }
     }
     main()
