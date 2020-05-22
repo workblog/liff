@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <title>My LIFF app</title>
   <link rel="stylesheet" href="css/style.css" media="all">
 </head>
+
 <body>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
@@ -72,7 +74,7 @@
     async function getFriendship() {
       const friend = await liff.getFriendship()
       document.getElementById("friendship").append(friend.friendFlag)
-      if(!friend.friendFlag) {
+      if (!friend.friendFlag) {
         if (confirm("คุณยังไม่ได้เพ่ิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
           window.location = "https://line.me/R/ti/p/@333xqsmk"
         }
@@ -81,7 +83,7 @@
     }
 
     async function sendMsg() {
-      if(liff.getContext().type !== "none") {
+      if (liff.getContext().type !== "none") {
         await liff.sendMessages([
           {
             "type": "sticker",
@@ -117,7 +119,7 @@
       document.getElementById("version").append(liff.getVersion())
       document.getElementById("accessToken").append(liff.getAccessToken())
       document.getElementById("isInClient").append(liff.isInClient())
-      if(liff.isInClient()) {
+      if (liff.isInClient()) {
         document.getElementById("btnLogOut").style.display = "none"
       } else {
         document.getElementById("btnMsg").style.display = "none"
@@ -129,13 +131,18 @@
     async function main() {
       //alert("LINE Developers Sirichai")
       await liff.init({ liffId: "1654240207-Ge5E9wx9" })
-      getEnvironment()
-      getUserProfile()
-      getContext()
-      getFriendship()
-      // createUniversalLink()
+      document.getEnvironment("isLoggedIn").append(liff.isLoggedIn())
+      if (liff.isLoggedIn()) {
+        getEnvironment()
+        getUserProfile()
+        getContext()
+        getFriendship()
+        // createUniversalLink()
+
+      }
     }
     main()
   </script>
 </body>
+
 </html>
